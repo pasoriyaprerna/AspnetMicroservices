@@ -1,7 +1,3 @@
-using Basket.Api.GrpsServices;
-using Basket.Api.Repositories;
-using Discount.Grpc;
-using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,12 +6,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Odering.Application;
+using Odering.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Basket.Api
+namespace Odering.API
 {
     public class Startup
     {
@@ -29,34 +27,13 @@ namespace Basket.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Redis Configuration
-            services.AddStackExchangeRedisCache(options =>
-            {
-                options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
-            });
-
-            // General Configuration
-            services.AddScoped<IBasketRepository, BasketRepository>();
-            //services.AddAutoMapper(typeof(Startup));
-
-            // Grpc Configuration
-            services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
-                (o => o.Address = new Uri(Configuration["GrpcSettings:DiscountUrl"]));
-            services.AddScoped<DiscountGrpcServices>();
-
-            // MassTransit-RabbitMQ Configuration
-            //services.AddMassTransit(config => {
-            //    config.UsingRabbitMq((ctx, cfg) => {
-            //        cfg.Host(Configuration["EventBusSettings:HostAddress"]);
-            //    });
-            //});
-            services.AddMassTransitHostedService();
-
+            services.AddApplicationServices();
+            services.AddInfrastructureServices(Configuration);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Odering.API", Version = "v1" });
             });
         }
 
@@ -67,7 +44,7 @@ namespace Basket.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Basket.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Odering.API v1"));
             }
 
             app.UseRouting();
