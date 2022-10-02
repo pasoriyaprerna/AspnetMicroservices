@@ -36,7 +36,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/GetProductByCategory/{category}",
-      "UpstreamHttpMethod": [ "GET"]
+      "UpstreamHttpMethod": [ "GET" ]
     },
     //Basket API
     {
@@ -124,5 +124,4 @@
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5010"
   }
-
 }

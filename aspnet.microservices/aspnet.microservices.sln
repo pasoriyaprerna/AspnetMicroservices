@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odering.API", "Services\Ode
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{96EF4600-0C07-406D-982E-553F8E0A01FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj", "{4763523B-4A4A-4401-BDBE-BDA040B2866B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Messages", "BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj", "{4763523B-4A4A-4401-BDBE-BDA040B2866B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping.Aggregator", "ApiGateway\Shopping.Aggregator\Shopping.Aggregator.csproj", "{A59BDD89-A1ED-43D7-9977-D63F5DE51BEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,10 @@ Global
 		{4763523B-4A4A-4401-BDBE-BDA040B2866B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4763523B-4A4A-4401-BDBE-BDA040B2866B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4763523B-4A4A-4401-BDBE-BDA040B2866B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59BDD89-A1ED-43D7-9977-D63F5DE51BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59BDD89-A1ED-43D7-9977-D63F5DE51BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59BDD89-A1ED-43D7-9977-D63F5DE51BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59BDD89-A1ED-43D7-9977-D63F5DE51BEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{67756D7A-7B9C-4CBC-AC4E-EAA3BB3FB43A} = {C1BBD132-C483-4BB1-8D95-C780B391A760}
 		{6CD0AE90-9DC8-42F9-8B97-4ADB85B5D32F} = {C1BBD132-C483-4BB1-8D95-C780B391A760}
 		{4763523B-4A4A-4401-BDBE-BDA040B2866B} = {96EF4600-0C07-406D-982E-553F8E0A01FF}
+		{A59BDD89-A1ED-43D7-9977-D63F5DE51BEF} = {8430A61D-8E65-46DE-BD50-07A5C06E2F9C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6EDCDE0-2066-4FF1-98A2-EB6C6B5631E0}
